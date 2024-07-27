@@ -160,7 +160,7 @@ python evaluation_metrics.py
 
 ### Fine-Tuning and Testing
 - **Challenge**: Lack of a domain-specific dataset for fine-tuning the language model.
-- **Solution**: Used GPT-3.5-turbo, which provides better performance out-of-the-box, reducing the need for extensive fine-tuning.
+- **Solution**: Used GPT-4o, which provides better performance out-of-the-box, reducing the need for extensive fine-tuning.
 
 ### Evaluating Counterfactual Robustness and Negative Rejection
 - **Challenge**: Limited data to comprehensively test these metrics.
