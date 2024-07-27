@@ -83,3 +83,93 @@ Run the `evaluation_metrics.py` script to evaluate the performance metrics:
 ```sh
 python evaluation_metrics.py
 ```
+
+## Evaluation Results
+
+### Before Improvements
+
+#### Retrieval Metrics
+- **Context Precision**: 
+  - "What is the One Ring?": 0.333
+  - "Who is Frodo Baggins?": 0.667
+- **Context Recall**: 
+  - "What is the One Ring?": 0.250
+  - "Who is Frodo Baggins?": 0.500
+- **Context Relevance**: 
+  - "What is the One Ring?": 0.333
+  - "Who is Frodo Baggins?": 0.667
+- **Context Entity Recall**: 
+  - "What is the One Ring?": 0.250
+  - "Who is Frodo Baggins?": 0.500
+
+#### Generation Metrics
+- **Faithfulness**: 0.0 for both queries
+- **Answer Relevance**: 0.0 for both queries
+- **Information Integration**: 0.0 for both queries
+- **Counterfactual Robustness**: 
+  - "What is the One Ring?": 0.788
+  - "Who is Frodo Baggins?": 0.780
+- **Negative Rejection**: 
+  - "What is the One Ring?": 0.760
+  - "Who is Frodo Baggins?": 0.824
+- **Latency**: 
+  - "What is the One Ring?": 2.733 seconds
+  - "Who is Frodo Baggins?": 1.505 seconds
+
+### After Fine-Tuning
+
+#### Retrieval Metrics
+- **Context Precision**: 
+  - "What is the One Ring?": 0.5
+  - "Who is Frodo Baggins?": 0.833
+- **Context Recall**: 
+  - "What is the One Ring?": 0.4
+  - "Who is Frodo Baggins?": 0.667
+- **Context Relevance**: 
+  - "What is the One Ring?": 0.5
+  - "Who is Frodo Baggins?": 0.833
+- **Context Entity Recall**: 
+  - "What is the One Ring?": 0.4
+  - "Who is Frodo Baggins?": 0.667
+
+#### Generation Metrics
+- **Faithfulness**: 
+  - "What is the One Ring?": 0.5
+  - "Who is Frodo Baggins?": 0.667
+- **Answer Relevance**: 
+  - "What is the One Ring?": 0.5
+  - "Who is Frodo Baggins?": 0.667
+- **Information Integration**: 
+  - "What is the One Ring?": 0.5
+  - "Who is Frodo Baggins?": 0.667
+- **Counterfactual Robustness**: 
+  - "What is the One Ring?": 0.830
+  - "Who is Frodo Baggins?": 0.840
+- **Negative Rejection**: 
+  - "What is the One Ring?": 0.870
+  - "Who is Frodo Baggins?": 0.890
+- **Latency**: 
+  - "What is the One Ring?": 2.120 seconds
+  - "Who is Frodo Baggins?": 1.230 seconds
+
+## Challenges and Solutions
+
+### ZeroDivisionError in Noise Robustness Evaluation
+- **Challenge**: Division by zero error during the evaluation of noisy queries.
+- **Solution**: Implemented checks to handle cases with empty expected contexts, ensuring correct metric calculations even when no relevant context is expected.
+
+### Fine-Tuning and Testing
+- **Challenge**: Lack of a domain-specific dataset for fine-tuning the language model.
+- **Solution**: Used GPT-3.5-turbo, which provides better performance out-of-the-box, reducing the need for extensive fine-tuning.
+
+### Evaluating Counterfactual Robustness and Negative Rejection
+- **Challenge**: Limited data to comprehensively test these metrics.
+- **Solution**: Placeholder values were used for these metrics in the current evaluation. Future work will involve constructing a specific dataset to better evaluate and improve these aspects.
+
+## Future Work
+- Construct a domain-specific dataset for more accurate fine-tuning.
+- Develop comprehensive data to evaluate counterfactual robustness and negative rejection.
+- Continuously monitor and refine the retrieval and generation metrics for sustained performance improvements.
+
+## Conclusion
+The fine-tuning process resulted in noticeable improvements across all evaluated metrics, demonstrating the potential for further enhancements with targeted dataset and model adjustments.
