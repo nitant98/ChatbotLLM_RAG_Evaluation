@@ -10,8 +10,6 @@ This project is a Conversational Retrieval-Augmented Generation (RAG) Chatbot de
 - [Evaluation](#evaluation)
 - [Results](#results)
 - [Challenges](#challenges)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
