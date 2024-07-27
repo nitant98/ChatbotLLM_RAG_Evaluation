@@ -59,3 +59,27 @@ Ensure you have Python 3.8 or higher installed. You'll also need a Pinecone acco
 ```sh
 pip install -r requirements.txt
 ```
+
+### Configure Pinecone
+Create an index in Pinecone with a dimension matching your embeddings (e.g., 768 for sentence-transformers/all-MiniLM-L6-v2).
+
+Set your Pinecone API key and environment in your environment variables:
+
+```sh
+export PINECONE_API_KEY="your-api-key"
+export PINECONE_ENV="your-environment"
+```
+
+### Create Embeddings
+Run the create_embeddings.py script to process the LOTR PDF and store the embeddings in Pinecone.
+
+```sh
+python create_embeddings.py
+```
+### Evaluate Metrics
+
+Run the `evaluation_metrics.py` script to evaluate the performance metrics:
+
+```sh
+python evaluation_metrics.py
+```
